@@ -1,0 +1,29 @@
+.container {
+    max-width: 600px;
+}
+
+.weather-app {
+    border: 2px solid #dadde1;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.clear {
+    text-transform: capitalize;
+}
+
+.degree {
+    line-height: 1.5;
+    font-size: 36px;
+}
+
+img {
+    height: 64px;
+    width: 64px;
+}
+
+.unit {
+    position: relative;
+    top: -10px;
+    font-size: 17px;
+}
