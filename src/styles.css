@@ -6,6 +6,7 @@
     border: 2px solid #dadde1;
     padding: 20px;
     border-radius: 5px;
+    background: linear-gradient(#f6ebe6, #aee1f9);
 }
 
 .clear {
@@ -36,4 +37,17 @@ img {
 
 .active:hover {
     text-decoration: none;
+}
+
+.grouping {
+    background: white;
+    margin: 8px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 10px;
+}
+
+.day-weeks {
+ 
 }
