@@ -43,8 +43,20 @@ function showTemperature (response) {
   iconElement.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
 }
 
+function search(city) {
 let apiKey = "7f43a2beob8ba3891d0t9638020ee3c9";
-let city = "Kahawa West";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(showTemperature);
+}
+
+function searchCity(event) {
+    event.preventDefault();
+    let cityInput = document.querySelector("#enter-city");
+    search(cityInput.value);
+}
+
+search("Lisbon");
+
+let form = document.querySelector("#search-city");
+form.addEventListener("submit", searchCity);
