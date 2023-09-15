@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container" class="row">
-        <div class="weather-app">
+        <div class="weather-app mt-2">
             <form id="search-city" class="mb-4">
                <div class="row">
                 <div class="col-9">
@@ -44,70 +44,16 @@
         </div>
 
        </div>
-       <div class="day-weeks row">
-            <div class="grouping col">
+       <div class="day-weeks row" id="weather-forecast">
+            <div class="grouping col-2">
                 <div class="days">
-                    <h2>Sun</h2>
+                    <h2 class="prediction min-prediction">Sun</h2>
                     <i class="fa-solid fa-cloud-sun icons"></i>
                 </div>
                 <div class="h1 unit-temp">
-                    <h1><strong class="degree">23</strong><span class="unit">°C | °F</span></h1>
+                    <h1><strong class="degree prediction">23° <span class="min-prediction">16°</span></strong></h1>
                 </div>
             </div>
-            <div class="grouping col-5">
-            <div class="days">
-                <h2>Mon</h2>
-                <i class="fa-solid fa-cloud-sun icons"></i>
-            </div>
-            <div class="h1 unit-temp">
-                <h1><strong class="degree">23</strong><span class="unit">°C | °F</span></h1>
-            </div>
-        </div>
-        <div class="grouping col-5">
-            <div class="days">
-                <h2>Tue</h2>
-                <i class="fa-solid fa-cloud-sun icons"></i>
-            </div>
-            <div class="h1 unit-temp">
-                <h1><strong class="degree">23</strong><span class="unit">°C | °F</span></h1>
-            </div>
-        </div>
-        <div class="grouping col">
-            <div class="days">
-                <h2>Wed</h2>
-                <i class="fa-solid fa-cloud-rain icons"></i>
-            </div>
-            <div class="h1">
-                <h1><strong class="degree">23</strong><span class="unit">°C | °F</span></h1>
-            </div>
-        </div>
-        <div class="grouping col-3">
-            <div class="days">
-                <h2>Thu</h2>
-                <i class="fa-solid fa-sun sunny"></i>
-            </div>
-            <div class="h1">
-                <h1><strong class="degree">23</strong><span class="unit">°C | °F</span></h1>
-            </div>
-        </div>
-        <div class="grouping col-3">
-            <div class="days">
-                <h2>Fri</h2>
-                <i class="fa-solid fa-cloud icons"></i>
-            </div>
-            <div class="h1">
-                <h1><strong class="degree">23</strong><span class="unit">°C | °F</span></h1>
-            </div>
-        </div>
-        <div class="grouping col-8">
-            <div class="days">
-                <h2>Sat</h2>
-                <i class="fa-solid fa-cloud-showers-heavy icons"></i>
-            </div>
-            <div class="h1">
-                <h1><strong class="degree">23</strong><span class="unit">°C | °F</span></h1>
-            </div>
-        </div>
        </div>
     </div>
     </div>

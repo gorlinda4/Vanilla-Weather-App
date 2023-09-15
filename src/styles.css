@@ -1,5 +1,6 @@
 .container {
     max-width: 600px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .weather-app {
@@ -29,6 +30,14 @@ img {
     font-size: 17px;
 }
 
+.prediction {
+    font-size: 17px;
+}
+
+.min-prediction {
+    opacity: 0.6;
+}
+
 .active {
     color: rgb(33, 33, 33);
     cursor: default;
@@ -45,9 +54,11 @@ img {
     border-radius: 5px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
-    padding: 10px;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-.day-weeks {
- 
+.icons {
+    margin-top: 7px;
 }
