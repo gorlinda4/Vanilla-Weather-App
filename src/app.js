@@ -24,6 +24,39 @@ function showDate (timeStamp) {
 
 }
 
+//weather forecast html injection - looping
+function showForecast() {
+    let forecastElement = document.querySelector("#weather-forecast");
+
+    let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ]
+
+    let forecastHTML = "";
+    days.forEach(function (day) {
+        forecastHTML = forecastHTML + 
+    `
+    <div class="grouping col-3">
+            <div class="days">
+                <h2 class="prediction min-prediction">${day}</h2>
+                <i class="fa-solid fa-cloud-sun icons"></i>
+            </div>
+            <div class="h1 unit-temp">
+                <h1><strong class="degree prediction">23° <span class="min-prediction">16°</span></strong></h1>
+            </div>
+        </div>
+    `;
+    });
+
+    forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemperature (response) {
    // console.log(response);
   let cityElement = document.querySelector("#city");
@@ -89,3 +122,4 @@ celsiusElement.addEventListener("click", displayCelsius);
 
 
 search("Lisbon");
+showForecast();
