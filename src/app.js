@@ -26,6 +26,7 @@ function showDate (timeStamp) {
 
 //weather forecast html injection - looping
 function showForecast(response) {
+    console.log(response.data)
     let forecastElement = document.querySelector("#weather-forecast");
 
     let days = [
@@ -98,6 +99,7 @@ function getForecast(city) {
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(showForecast);
+
 }
 
 function displayFahrenheit(event) {
@@ -105,14 +107,13 @@ function displayFahrenheit(event) {
     let temperatureElement = document.querySelector("#currentTemperature");
     celsiusElement.classList.remove("active");
     fahrenheitElement.classList.add("active");
-    let fahrenheit = (celsiusTemperature * 9) / 5 + 32;
+    let fahrenheit = (celsiusTemperature * 9 / 5) + 32;
     temperatureElement.innerHTML = Math.round(fahrenheit); 
 
 }
--+
+
 function displayCelsius(event) {
     event.preventDefault();
-    let temperatureElement = document.querySelector("#currentTemperature");
     celsiusElement.classList.add("active");
     fahrenheitElement.classList.remove("active");
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
