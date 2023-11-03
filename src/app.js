@@ -25,7 +25,7 @@ function showDate (timeStamp) {
 }
 
 //weather forecast html injection - looping
-function showForecast() {
+function showForecast(response) {
     let forecastElement = document.querySelector("#weather-forecast");
 
     let days = [
@@ -76,6 +76,7 @@ function showTemperature (response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   timeElement.innerHTML = showDate(response.data.time * 1000);
   iconElement.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
+  getForecast(response.data.city);
 }
 
 function search(city) {
@@ -85,10 +86,18 @@ let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${api
 axios.get(apiUrl).then(showTemperature);
 }
 
+
 function searchCity(event) {
     event.preventDefault();
     let cityInput = document.querySelector("#enter-city");
     search(cityInput.value);
+}
+
+function getForecast(city) {
+    let apiKey = "7f43a2beob8ba3891d0t9638020ee3c9";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(showForecast);
 }
 
 function displayFahrenheit(event) {
@@ -100,7 +109,7 @@ function displayFahrenheit(event) {
     temperatureElement.innerHTML = Math.round(fahrenheit); 
 
 }
-
+-+
 function displayCelsius(event) {
     event.preventDefault();
     let temperatureElement = document.querySelector("#currentTemperature");
@@ -122,4 +131,3 @@ celsiusElement.addEventListener("click", displayCelsius);
 
 
 search("Lisbon");
-showForecast();
