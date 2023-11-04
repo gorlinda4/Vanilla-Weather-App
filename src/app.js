@@ -24,11 +24,8 @@ function showDate (timeStamp) {
 
 }
 
-//weather forecast html injection - looping
-function showForecast(response) {
-    console.log(response.data)
-    let forecastElement = document.querySelector("#weather-forecast");
-
+function showDay (timestamp) {
+    let date = new Date(timestamp * 1000);
     let days = [
         "Sunday",
         "Monday",
@@ -37,22 +34,33 @@ function showForecast(response) {
         "Thursday",
         "Friday",
         "Saturday"
-    ]
+    ];
+    return days[date.getDay()];
+
+}
+
+//weather forecast html injection - looping
+function showForecast(response) {
+    console.log(response.data)
+    let forecastElement = document.querySelector("#weather-forecast");
+
 
     let forecastHTML = "";
-    days.forEach(function (day) {
+    response.data.daily.forEach(function (day, index) {
+        if (index < 5) {
         forecastHTML = forecastHTML + 
     `
-    <div class="grouping col-3">
+    <div class="grouping col-2">
             <div class="days">
-                <h2 class="prediction min-prediction">${day}</h2>
-                <i class="fa-solid fa-cloud-sun icons"></i>
+                <h2 class="prediction min-prediction">${showDay(day.time)}</h2>
+                <img src="${day.condition.icon_url}" class="icons">
             </div>
             <div class="h1 unit-temp">
-                <h1><strong class="degree prediction">23° <span class="min-prediction">16°</span></strong></h1>
+                <h1><strong class="degree prediction">${Math.round(day.temperature.maximum)}° <span class="min-prediction">${Math.round(day.temperature.minimum)}°</span></strong></h1>
             </div>
         </div>
     `;
+    }
     });
 
     forecastElement.innerHTML = forecastHTML;
