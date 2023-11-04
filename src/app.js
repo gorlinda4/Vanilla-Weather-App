@@ -47,10 +47,10 @@ function showForecast(response) {
 
     let forecastHTML = "";
     response.data.daily.forEach(function (day, index) {
-        if (index < 5) {
+        if (index < 6) {
         forecastHTML = forecastHTML + 
     `
-    <div class="grouping col-2">
+    <div class="grouping col-3">
             <div class="days">
                 <h2 class="prediction min-prediction">${showDay(day.time)}</h2>
                 <img src="${day.condition.icon_url}" class="icons">
